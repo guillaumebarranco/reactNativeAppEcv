@@ -130,8 +130,9 @@ export default class reactNativeApp extends Component {
         });
     }
 
-    getFilterClass(value) {
-        return this.state.filters === value ? 'active' : '';
+    getFilterClass(value) 
+    {
+        return this.state.filters.toLowerCase() === value.toLowerCase() ? "red" : 'blue';
     }
 
     addElement() {
@@ -155,6 +156,12 @@ export default class reactNativeApp extends Component {
             <View style={styles.container}>
 
                 {/*<Image source={require('./src/logo.svg')} />*/}
+
+                <View className="filters">
+                    <Button title="Tous" color={this.getFilterClass("none")} onPress={this.selectFilter.bind(this, "none")} />
+                    <Button title="Goron" color={this.getFilterClass("goron")} onPress={this.selectFilter.bind(this, "goron")} />
+                    <Button title="Zora" color={this.getFilterClass("zora")} onPress={this.selectFilter.bind(this, "zora")} />
+                </View>
 
                 <View>
                     <Text>Name</Text>
@@ -211,6 +218,12 @@ const styles = StyleSheet.create({
     },
     unstroked: {
         textDecorationLine: 'none'
+    },
+    active: {
+        backgroundColor: 'red'
+    },
+    notactive: {
+        backgroundColor: 'yellow'
     }
 });
 
