@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.stroked {
+	text-decoration: line-through;
+}
+
+.unstroked {
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	padding: 10px 15px;
+}
+
+button.active {
+	background-color: blue;
+}
