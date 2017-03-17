@@ -54,3 +54,8 @@ export default class Filters extends Component {
         )
     }
 }
+
+Filters.propTypes = {
+    activeFilter: PropTypes.string.isRequired,
+    onChangeFilter: PropTypes.func.isRequired
+};

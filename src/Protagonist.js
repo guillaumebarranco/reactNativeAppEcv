@@ -7,6 +7,8 @@ import {
     TouchableHighlight
 } from 'react-native';
 
+const styles = exportedStyles;
+
 export default class Protagonist extends Component {
 
     constructor() {
@@ -58,5 +60,3 @@ Protagonist.propTypes = {
     tribu: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
 };
-
-const styles = exportedStyles;

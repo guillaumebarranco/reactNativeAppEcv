@@ -23,25 +23,21 @@ export default class ProtagonistForm extends Component {
 
     changeNewElementName(value) {
 
-        const newElement = {
-            name: value,
-            tribu: this.state.newElement.tribu
-        };
-
         this.setState({
-            newElement: newElement
+            newElement: {
+                name: value,
+                tribu: this.state.newElement.tribu
+            }
         });
     }
 
     changeNewElementTribu(value) {
 
-        const newElement = {
-            name: this.state.newElement.name,
-            tribu: value
-        };
-
         this.setState({
-            newElement: newElement
+            newElement: {
+                name: this.state.newElement.name,
+                tribu: value
+            }
         });
     }
 
@@ -75,3 +71,7 @@ export default class ProtagonistForm extends Component {
         )
     }
 }
+
+ProtagonistForm.propTypes = {
+    onAddElement: PropTypes.func.isRequired
+};

@@ -35,14 +35,14 @@ export default class reactNativeApp extends Component {
                 }
             ],
 
-            filters: 'goron'
+            currentFilter: 'goron'
         };
     }
 
     selectFilter(value) {
 
         this.setState({
-            filters: value
+            currentFilter: value
         });
     }
 
@@ -58,24 +58,29 @@ export default class reactNativeApp extends Component {
         });
     }
 
+    processFilter(element) {
+
+        if(this.state.currentFilter === "none") {
+            return true;
+        } else if(element.tribu.toLowerCase() === this.state.currentFilter.toLowerCase()) {
+            return true;
+        }
+
+        return false;
+    }
+
     render() {
         return (
             <View style={styles.container}>
 
                 {/*<Image source={require('./src/logo.svg')} />*/}
 
-                <Filters activeFilter={this.state.filters} onChangeFilter={this.selectFilter.bind(this)}></Filters>
+                <Filters activeFilter={this.state.currentFilter} onChangeFilter={this.selectFilter.bind(this)}></Filters>
                 <ProtagonistForm onAddElement={this.addElement.bind(this)}></ProtagonistForm>
 
                 {this.state.elements.map((element, index) => {
 
-                    let isInFilter = false;
-
-                    if(this.state.filters === "none") {
-                        isInFilter = true;
-                    } else if(element.tribu.toLowerCase() === this.state.filters.toLowerCase()) {
-                        isInFilter = true;
-                    }
+                    let isInFilter = this.processFilter(element);
 
                     if(!isInFilter) {
                         return null;
