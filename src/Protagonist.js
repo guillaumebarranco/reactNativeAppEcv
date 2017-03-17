@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import exportedStyles from './styles';
 
 import {
     Text,
@@ -57,3 +58,5 @@ Protagonist.propTypes = {
     tribu: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
 };
+
+const styles = exportedStyles;

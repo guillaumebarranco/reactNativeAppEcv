@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import exportedStyles from './styles';
 import Protagonist from './Protagonist';
+import Filters from './Filters';
 
 import {
     AppRegistry,
@@ -39,8 +40,15 @@ export default class reactNativeApp extends Component {
                 tribu: ""
             },
 
-            filters: "none"
+            filters: 'goron'
         };
+    }
+
+    selectFilter(value) {
+
+        this.setState({
+            filters: value
+        });
     }
 
     changeNewElementName(value) {
@@ -67,18 +75,6 @@ export default class reactNativeApp extends Component {
         });
     }
 
-    selectFilter(value) {
-
-        this.setState({
-            filters: value
-        });
-    }
-
-    getFilterClass(value) 
-    {
-        return this.state.filters.toLowerCase() === value.toLowerCase() ? "red" : 'blue';
-    }
-
     addElement() {
 
         this.state.elements.push({
@@ -101,11 +97,7 @@ export default class reactNativeApp extends Component {
 
                 {/*<Image source={require('./src/logo.svg')} />*/}
 
-                <View className="filters">
-                    <Button title="Tous" color={this.getFilterClass("none")} onPress={this.selectFilter.bind(this, "none")} />
-                    <Button title="Goron" color={this.getFilterClass("goron")} onPress={this.selectFilter.bind(this, "goron")} />
-                    <Button title="Zora" color={this.getFilterClass("zora")} onPress={this.selectFilter.bind(this, "zora")} />
-                </View>
+                <Filters activeFilter={this.state.filters} onChangeFilter={this.selectFilter.bind(this)}></Filters>
 
                 <View>
                     <Text>Name</Text>
@@ -133,7 +125,14 @@ export default class reactNativeApp extends Component {
                         return null;
                     }
 
-                    return <Protagonist key={element.name} style={styles.welcome} name={element.name} tribu={element.tribu} />;
+                    return (
+                        <Protagonist
+                            key={element.name}
+                            style={styles.welcome}
+                            name={element.name}
+                            tribu={element.tribu}
+                        />
+                    );
                 })}
             </View>
         );
