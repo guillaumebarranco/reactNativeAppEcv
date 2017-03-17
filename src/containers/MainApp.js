@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Protagonist from './../Protagonist';
+import ProtagonistForm from './../ProtagonistForm';
 import Filters from './../Filters';
 import exportedStyles from './../styles';
 
@@ -23,6 +24,8 @@ export default class MainApp extends Component {
                     elements={this.props.filters.elements}
                     onChangeFilter={this.props.selectFilter}
                 />
+
+                <ProtagonistForm onAddElement={this.props.addElement}></ProtagonistForm>
 
                 {this.props.protagonists.map((element, index) => {
 

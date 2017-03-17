@@ -10,6 +10,10 @@ function mapDispatchToProps(dispatch) {
         onAddTodo: (label) => {
             dispatch({ type: 'ADD_TODO', label});
         },
+        addElement: (element) => {
+            dispatch({ type: 'ADD_PROTAGONIST', element});
+        },
+        
 
 
 
