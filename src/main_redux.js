@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import exportedStyles from './styles';
 import { Provider } from 'react-redux';
-import { Protagonist } from './Protagonist';
+import exportedStyles from './styles';
 import MainAppContainer from './containers/MainAppContainer';
 
 import store from './store';

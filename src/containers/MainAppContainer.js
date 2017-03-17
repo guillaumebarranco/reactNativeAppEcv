@@ -4,17 +4,9 @@ import MainApp from './MainApp';
 function mapDispatchToProps(dispatch) {
 
     return {
-        onTodoClick: (index) => {
-            dispatch({ type: 'TOGGLE_TODO', index});
-        },
-        onAddTodo: (label) => {
-            dispatch({ type: 'ADD_TODO', label});
-        },
         addElement: (element) => {
             dispatch({ type: 'ADD_PROTAGONIST', element});
         },
-        
-
 
 
         // Filters
@@ -22,7 +14,7 @@ function mapDispatchToProps(dispatch) {
             dispatch({type: 'FILTER_UPDATE', filter})
         },
 
-        // Unused
+        // Unused for now
         processFilter: (element) => {
 
             if(this.state.filters.currentFilter === "none") {

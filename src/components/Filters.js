@@ -1,15 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import {
-    View,
-    Button
-} from 'react-native';
+import { View, Button } from 'react-native';
 
 export default class Filters extends Component {
-
-    constructor() {
-        super();
-    }
 
     getFilterClass(value) {
         return this.props.activeFilter.toLowerCase() === value.toLowerCase() ? "red" : 'blue';

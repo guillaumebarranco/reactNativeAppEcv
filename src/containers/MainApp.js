@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Protagonist from './../Protagonist';
-import ProtagonistForm from './../ProtagonistForm';
-import Filters from './../Filters';
+import Protagonist from './../components/Protagonist';
+import ProtagonistForm from './../components/ProtagonistForm';
+import Filters from './../components/Filters';
 import exportedStyles from './../styles';
 
 import {

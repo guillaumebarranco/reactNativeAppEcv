@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import exportedStyles from './styles';
+import exportedStyles from './../styles';
 
 import {
     View,
