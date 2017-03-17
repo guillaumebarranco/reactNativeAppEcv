@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import exportedStyles from './styles';
 
 import {
-    Text,
     View,
+    Text,
     TouchableHighlight
 } from 'react-native';
 

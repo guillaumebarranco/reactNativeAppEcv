@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import exportedStyles from './styles';
 import Protagonist from './Protagonist';
+import ProtagonistForm from './ProtagonistForm';
 import Filters from './Filters';
 
 import {
@@ -9,7 +10,6 @@ import {
     Text,
     View,
     Image,
-    TouchableHighlight,
     Button,
     TextInput
 } from 'react-native';
@@ -35,11 +35,6 @@ export default class reactNativeApp extends Component {
                 }
             ],
 
-            newElement: {
-                name: "",
-                tribu: ""
-            },
-
             filters: 'goron'
         };
     }
@@ -51,43 +46,15 @@ export default class reactNativeApp extends Component {
         });
     }
 
-    changeNewElementName(value) {
-
-        const newElement = {
-            name: value,
-            tribu: this.state.newElement.tribu
-        };
-
-        this.setState({
-            newElement: newElement
-        });
-    }
-
-    changeNewElementTribu(value) {
-
-        const newElement = {
-            name: this.state.newElement.name,
-            tribu: value
-        };
-
-        this.setState({
-            newElement: newElement
-        });
-    }
-
-    addElement() {
+    addElement(element) {
 
         this.state.elements.push({
-            name: this.state.newElement.name,
-            tribu: this.state.newElement.tribu
+            name: element.name,
+            tribu: element.tribu
         });
 
         this.setState({
-            elements: this.state.elements,
-            newElement: {
-                name: "",
-                tribu: ""
-            }
+            elements: this.state.elements
         });
     }
 
@@ -98,18 +65,7 @@ export default class reactNativeApp extends Component {
                 {/*<Image source={require('./src/logo.svg')} />*/}
 
                 <Filters activeFilter={this.state.filters} onChangeFilter={this.selectFilter.bind(this)}></Filters>
-
-                <View>
-                    <Text>Name</Text>
-                    <TextInput value={this.state.newElement.name} onChangeText={this.changeNewElementName.bind(this)} />
-                </View>
-
-                <View>
-                    <Text>Tribu</Text>
-                    <TextInput value={this.state.newElement.tribu} onChangeText={this.changeNewElementTribu.bind(this)} />
-                </View>
-
-                <Button title="Ajouter" onPress={this.addElement.bind(this)} />
+                <ProtagonistForm onAddElement={this.addElement.bind(this)}></ProtagonistForm>
 
                 {this.state.elements.map((element, index) => {
 

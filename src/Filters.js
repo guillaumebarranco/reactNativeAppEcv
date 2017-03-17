@@ -34,7 +34,6 @@ export default class Filters extends Component {
     }
 
     updateFilter(value) {
-        console.log('enfant', value);
         this.props.onChangeFilter(value);
     }
 
