@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from 'redux';
 import protagonists from './reducers/protagonists';
-import filter from './reducers/filter';
+import filters from './reducers/filter';
 
 let reducer = combineReducers({
 	protagonists: protagonists,
-	currentFilter: filter
+	filters: filters
 });
 
 let store = createStore(reducer);

@@ -21,9 +21,9 @@ function mapDispatchToProps(dispatch) {
         // Unused
         processFilter: (element) => {
 
-            if(this.state.currentFilter === "none") {
+            if(this.state.filters.currentFilter === "none") {
                 return true;
-            } else if(element.tribu.toLowerCase() === this.state.currentFilter.toLowerCase()) {
+            } else if(element.tribu.toLowerCase() === this.state.filters.currentFilter.toLowerCase()) {
                 return true;
             }
 
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 
     return {
         protagonists: state.protagonists,
-        currentFilter: state.currentFilter
+        filters: state.filters
     }
 }
 

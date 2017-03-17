@@ -17,15 +17,20 @@ export default class MainApp extends Component {
     render() {
         return (
             <View>
-                <Filters activeFilter={this.props.currentFilter} onChangeFilter={this.props.selectFilter} />
+
+                <Filters
+                    activeFilter={this.props.filters.currentFilter}
+                    elements={this.props.filters.elements}
+                    onChangeFilter={this.props.selectFilter}
+                />
 
                 {this.props.protagonists.map((element, index) => {
 
                     let isInFilter = false;
 
-                    if(this.props.currentFilter === "none") {
+                    if(this.props.filters.currentFilter === "none") {
                         isInFilter = true;
-                    } else if(element.tribu.toLowerCase() === this.props.currentFilter.toLowerCase()) {
+                    } else if(element.tribu.toLowerCase() === this.props.filters.currentFilter.toLowerCase()) {
                         isInFilter = true;
                     }
 

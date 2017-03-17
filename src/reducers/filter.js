@@ -1,11 +1,30 @@
-const initialStateFilter = "none";
+const initialStateFilter = {
+    currentFilter: 'none',
+    elements: [
+        {
+            slug:"none",
+            title: "Tous"
+        }, 
+        {
+            slug:"goron",
+            title: "Goron"
+        }, 
+        {
+            slug:"zora",
+            title: "Zora"
+        }
+    ]
+};
 
 function filter(state = initialStateFilter, action) {
 
     switch (action.type) {
 
         case 'FILTER_UPDATE':
-            return action.filter;
+            const newState = {...state};
+            newState.currentFilter = action.filter;
+
+            return newState;
 
         default:
             return state;

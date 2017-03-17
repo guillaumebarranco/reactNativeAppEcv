@@ -9,24 +9,6 @@ export default class Filters extends Component {
 
     constructor() {
         super();
-
-        this.state = {
-
-            tribus: [
-                {
-                    slug:"none",
-                    title: "Tous"
-                }, 
-                {
-                    slug:"goron",
-                    title: "Goron"
-                }, 
-                {
-                    slug:"zora",
-                    title: "Zora"
-                }
-            ]
-        };
     }
 
     getFilterClass(value) {
@@ -40,7 +22,7 @@ export default class Filters extends Component {
     render() {
         return (
             <View className="filters">
-                {this.state.tribus.map((element) => {
+                {this.props.elements.map((element) => {
                     return (
                         <Button
                             key={element.title}
