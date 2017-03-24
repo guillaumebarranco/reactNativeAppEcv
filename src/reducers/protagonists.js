@@ -1,15 +1,4 @@
-const initialState = [
-    {
-        name: 'Daruma',
-        tribu: 'Goron'
-    }, {
-        name:'Jabu-Jabu',
-        tribu: 'Zora'
-    }, {
-        name: 'Mido',
-        tribu: "Kokiri"
-    }
-];
+const initialState = [];
 
 function protagonists(state = initialState, action) {
 
@@ -21,6 +10,9 @@ function protagonists(state = initialState, action) {
                 name: action.element.name,
                 tribu: action.element.tribu
             }]);
+
+        case 'FETCH_PROTAGONISTS_SUCCESS':
+            return state.concat(action.protagonists);
 
         default:
             return state;

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import MainApp from './MainApp';
+import fetchProtagonists from './../components/fetchProtagonists';
 
 function mapDispatchToProps(dispatch) {
 
@@ -24,6 +25,13 @@ function mapDispatchToProps(dispatch) {
             }
 
             return false;
+        },
+
+        fetchComplete : (protagonists) => {
+            dispatch({type: 'FETCH_PROTAGONISTS_SUCCESS', protagonists})
+        },
+        fetchError : (error) => {
+            dispatch({type: 'FETCH_PROTAGONISTS_ERROR', error})
         }
     }
 }
@@ -39,6 +47,6 @@ function mapStateToProps(state) {
 const MainAppContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(MainApp);
+)(fetchProtagonists(MainApp));
 
 export default MainAppContainer;
