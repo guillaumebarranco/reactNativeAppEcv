@@ -18,6 +18,10 @@ const initialStateFilter = {
 
 function filter(state = initialStateFilter, action) {
 
+    const defaultAction = {type: ''};
+
+    action = action || defaultAction;
+
     switch (action.type) {
 
         case 'FILTER_UPDATE':
